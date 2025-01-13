@@ -96,10 +96,10 @@ local Button = MainTab:CreateButton({
    end,
 })
 local Button = MainTab:CreateButton({
-   Name = "ItajubÃ¡ M943",
+   Name = "Itajubá M943",
    Callback = function()
       local args = {
-         [1] = "ItajubÃ¡ M943",
+         [1] = "Itajubá M943",
          [2] = 0
      }
      
@@ -136,6 +136,20 @@ local Button1 = TPTab:CreateButton({
    Callback = function()
       local args = {
          [1] = "Taurus 38101SO",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+
+local TPTab = Window:CreateTab("Se curar", nil) -- Title, Image
+
+local Button1 = TPTab:CreateButton({
+   Name = "Bandagem Grande",
+   Callback = function()
+      local args = {
+         [1] = "Bandagem grande",
          [2] = 0
      }
      
