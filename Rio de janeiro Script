@@ -106,3 +106,14 @@ local Button = MainTab:CreateButton({
      game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
    end,
 })
+
+local TPTab = Window:CreateTab("Link do jogo", nil) -- Title, Image
+
+local Button1 = TPTab:CreateButton({
+   Name = "Clique aqui para copiar",
+   Callback = function()
+if setclipboard then setclipboard("https://www.roblox.com/pt/games/113978946318971/Rio-de-Janeiro-1943") end
+          	--Notifies readiness
+	game.StarterGui:SetCore("SendNotification", {Title="Copiado com sucesso"; Text="Link do jogo foi enviado para seu CTRL+V"; Duration=5;})
+   end,
+})
