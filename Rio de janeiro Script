@@ -6,232 +6,90 @@ local Window = Rayfield:CreateWindow({
    LoadingSubtitle = "by idont_cry",
    ConfigurationSaving = {
       Enabled = false,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Example Hub"
+      FolderName = nil,
+      FileName = "Example Hub",
    },
 })
 
-local MainTab = Window:CreateTab("Fuzil", nil) -- Title, Image
-local MainSection = MainTab:CreateSection("Main")
+local function createButton(tab, name, args)
+   tab:CreateButton({
+      Name = name,
+      Callback = function()
+         game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+      end,
+   })
+end
 
-Rayfield:Notify({
-   Title = "Script executado com sucesso",
-   Content = "destrua o RP :]",
-   Duration = 5,
-   Image = 13047715178,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
-})
+local function createTeamButton(tab, name, teamName)
+   tab:CreateButton({
+      Name = name,
+      Callback = function()
+         game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(teamName)
+      end,
+   })
+end
 
-local Button = MainTab:CreateButton({
-    Name = "Hotchkiss M1922",
-    Callback = function()
-      local args = {
-         [1] = "Hotchkiss M1922",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "MP28/34",
-   Callback = function()
-      local args = {
-         [1] = "MP28/34",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "Madsen 1934",
-   Callback = function()
-      local args = {
-         [1] = "Madsen 1934",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "INA M943",
-   Callback = function()
-      local args = {
-         [1] = "INA M943",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "Colt M1911",
-   Callback = function()
-      local args = {
-         [1] = "Colt M1911",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "Itajubá M943",
-   Callback = function()
-      local args = {
-         [1] = "Itajubá M943",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "Bandagem Grande",
-   Callback = function()
-      local args = {
-         [1] = "Bandagem grande",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "Molotov",
-   Callback = function()
-      local args = {
-         [1] = "Molotov",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
+local function notify(title, content)
+   game.StarterGui:SetCore("SendNotification", {
+      Title = title,
+      Text = content,
+      Duration = 5,
+   })
+end
 
-local TPTab = Window:CreateTab("Pistolas", nil) -- Title, Image
+-- Tab: Fuzis
+local MainTab = Window:CreateTab("Fuzil", nil)
+createButton(MainTab, "Hotchkiss M1922", {"Hotchkiss M1922", 0})
+createButton(MainTab, "MP28/34", {"MP28/34", 0})
+createButton(MainTab, "Madsen 1934", {"Madsen 1934", 0})
+createButton(MainTab, "INA M943", {"INA M943", 0})
+createButton(MainTab, "Itajubá M943", {"Itajubá M943", 0})
+createButton(MainTab, "Mauser 1908/34", {"Mauser 1908/34", 0})
+createButton(MainTab, "Molotov", {"Molotov", 0})
+createButton(MainTab, "Bandagem Grande", {"Bandagem grande", 0})
 
-local Button1 = TPTab:CreateButton({
-   Name = "Colt M1911",
-   Callback = function()
-      local args = {
-         [1] = "Colt M1911",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button1 = TPTab:CreateButton({
-   Name = "Mauser 1908/34",
-   Callback = function()
-      local args = {
-         [1] = "Mauser 1908/34",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
-local Button1 = TPTab:CreateButton({
-   Name = "Taurus 38101SO",
-   Callback = function()
-      local args = {
-         [1] = "Taurus 38101SO",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
-   end,
-})
+-- Tab: Pistolas
+local PistolasTab = Window:CreateTab("Pistolas", nil)
+createButton(PistolasTab, "Colt M1911", {"Colt M1911", 0})
+createButton(PistolasTab, "Taurus 38101SO", {"Taurus 38101SO", 0})
 
-local TPTab = Window:CreateTab("Mudar team", nil) -- Title, Image
+-- Tab: Mudar Team
+local TeamTab = Window:CreateTab("Mudar team", nil)
+createTeamButton(TeamTab, "Forças Armadas", "Forças Armadas")
+createTeamButton(TeamTab, "Poder Executivo", "Poder Executivo")
+createTeamButton(TeamTab, "Poder Legislativo", "Poder Legislativo")
+createTeamButton(TeamTab, "Força Pública", "Força Pública")
+createTeamButton(TeamTab, "Polícia Civil", "Polícia Civil")
+createTeamButton(TeamTab, "Padre", "Padre")
 
-local Button1 = TPTab:CreateButton({
-   Name = "Forças Armadas",
-   Callback = function()
-local ohString1 = "Forças Armadas"
-
-game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString1)
-   end,
-})
-local Button3 = TPTab:CreateButton({
-   Name = "Poder Executivo",
-   Callback = function()
-      local ohString3 = "Poder Executivo"
-      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString3)
-   end,
-})
-local Button1 = TPTab:CreateButton({
-   Name = "Poder Legislativo",
-   Callback = function()
-      local ohString1 = "Poder Legislativo"
-      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString1)
-   end,
-})
-local Button8 = TPTab:CreateButton({
-   Name = "Força Pública",
-   Callback = function()
-      local ohString8 = "Força Pública"
-      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString8)
-   end,
-})
-local Button9 = TPTab:CreateButton({
-   Name = "Polícia Civil",
-   Callback = function()
-      local ohString9 = "Polícia Civil"
-      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString9)
-   end,
-})
-local Button10 = TPTab:CreateButton({
-   Name = "Padre",
-   Callback = function()
-      local ohString10 = "Padre"
-      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString10)
-   end,
-})
-local TPTab = Window:CreateTab("Link do jogo", nil) -- Title, Image
-local Button1 = TPTab:CreateButton({
+-- Tab: Link do Jogo
+local LinkTab = Window:CreateTab("Link do jogo", nil)
+LinkTab:CreateButton({
    Name = "Clique aqui para copiar",
    Callback = function()
       if setclipboard then
          setclipboard("https://www.roblox.com/pt/games/113978946318971/Rio-de-Janeiro-1943")
       end
-      game.StarterGui:SetCore("SendNotification", {
-         Title = "Copiado com sucesso",
-         Text = "Link do jogo foi enviado para seu CTRL+V",
-         Duration = 5,
-      })
+      notify("Copiado com sucesso", "Link do jogo foi enviado para seu CTRL+V")
    end,
 })
 
-local isIrritating = false
-
-local Toggle = TPTab:CreateToggle({
-   Name = "Spammar chamada (BOTÃO VERMELHO COM "!"),
+-- Toggle: Spammar Chamada
+local isSpamming = false
+LinkTab:CreateToggle({
+   Name = "Spammar chamada",
    CurrentValue = false,
-   Flag = "Toggle1", -- Identificador único
+   Flag = "Toggle1",
    Callback = function(Value)
-      isIrritating = Value -- Atualiza o estado do toggle
+      isSpamming = Value
    end,
 })
 
 task.spawn(function()
    while true do
-      if isIrritating then
-         local ohString1 = "Make"
-         local ohString2 = "MADE BY  idon_cry"
-         game:GetService("ReplicatedStorage").Modcall:FireServer(ohString1, ohString2)
+      if isSpamming then
+         game:GetService("ReplicatedStorage").Modcall:FireServer("Make", "MADE BY  idon_cry")
       end
-      task.wait(0.1) -- Intervalo para reduzir a sobrecarga
+      task.wait(0.1)
    end
 end)
