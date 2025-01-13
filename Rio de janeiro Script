@@ -107,6 +107,41 @@ local Button = MainTab:CreateButton({
    end,
 })
 
+local TPTab = Window:CreateTab("Pistolas", nil) -- Title, Image
+
+local Button1 = TPTab:CreateButton({
+   Name = "Colt M1911",
+   Callback = function()
+      local args = {
+         [1] = "Colt M1911",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button1 = TPTab:CreateButton({
+   Name = "Mauser 1908/34",
+   Callback = function()
+      local args = {
+         [1] = "Mauser 1908/34",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button1 = TPTab:CreateButton({
+   Name = "Taurus 38101SO",
+   Callback = function()
+      local args = {
+         [1] = "Taurus 38101SO",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
 local TPTab = Window:CreateTab("Link do jogo", nil) -- Title, Image
 
 local Button1 = TPTab:CreateButton({
