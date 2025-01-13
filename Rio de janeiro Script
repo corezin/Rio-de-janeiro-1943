@@ -96,6 +96,17 @@ local Button = MainTab:CreateButton({
    end,
 })
 local Button = MainTab:CreateButton({
+   Name = "Bandagem Grande",
+   Callback = function()
+      local args = {
+         [1] = "Bandagem grande",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button = MainTab:CreateButton({
    Name = "Molotov",
    Callback = function()
       local args = {
@@ -143,17 +154,49 @@ local Button1 = TPTab:CreateButton({
    end,
 })
 
-local TPTab = Window:CreateTab("Se curar", nil) -- Title, Image
+local TPTab = Window:CreateTab("Mudar team", nil) -- Title, Image
 
 local Button1 = TPTab:CreateButton({
-   Name = "Bandagem Grande",
+   Name = "Forças Armadas",
    Callback = function()
-      local args = {
-         [1] = "Bandagem grande",
-         [2] = 0
-     }
-     
-     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+local ohString1 = "Forças Armadas"
+
+game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString1)
+   end,
+})
+local Button3 = TPTab:CreateButton({
+   Name = "Poder Executivo",
+   Callback = function()
+      local ohString3 = "Poder Executivo"
+      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString3)
+   end,
+})
+local Button1 = TPTab:CreateButton({
+   Name = "Poder Legislativo",
+   Callback = function()
+      local ohString1 = "Poder Legislativo"
+      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString1)
+   end,
+})
+local Button8 = TPTab:CreateButton({
+   Name = "Força Pública",
+   Callback = function()
+      local ohString8 = "Força Pública"
+      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString8)
+   end,
+})
+local Button9 = TPTab:CreateButton({
+   Name = "Polícia Civil",
+   Callback = function()
+      local ohString9 = "Polícia Civil"
+      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString9)
+   end,
+})
+local Button10 = TPTab:CreateButton({
+   Name = "Padre",
+   Callback = function()
+      local ohString10 = "Padre"
+      game:GetService("ReplicatedStorage").TeamChoosingEvent:FireServer(ohString10)
    end,
 })
 local TPTab = Window:CreateTab("Link do jogo", nil) -- Title, Image
