@@ -209,3 +209,19 @@ if setclipboard then setclipboard("https://www.roblox.com/pt/games/1139789463189
 	game.StarterGui:SetCore("SendNotification", {Title="Copiado com sucesso"; Text="Link do jogo foi enviado para seu CTRL+V"; Duration=5;})
    end,
 })
+local Toggle = TPTab:CreateToggle({
+   Name = "Irritar o ADMIN",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+while true do
+   local ohString1 = "Make"
+   local ohString2 = "HACK BY  idon_cry"
+
+   game:GetService("ReplicatedStorage").Modcall:FireServer(ohString1, ohString2)
+
+   task.wait(0.1)
+end
+
+   end,
+})
