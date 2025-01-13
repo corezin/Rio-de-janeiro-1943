@@ -1,0 +1,108 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Puxar arma | Rio de Janeiro, 1943",
+   LoadingTitle = "Rio de Janeiro, 1943",
+   LoadingSubtitle = "by idont_cry",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Example Hub"
+   },
+})
+
+local MainTab = Window:CreateTab("Escolha sua arma", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+   Title = "Script executado com sucesso",
+   Content = "Aproveita :]",
+   Duration = 5,
+   Image = 13047715178,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+local Button = MainTab:CreateButton({
+    Name = "Hotchkiss M1922",
+    Callback = function()
+      local args = {
+         [1] = "Hotchkiss M1922",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button = MainTab:CreateButton({
+   Name = "MP28/34",
+   Callback = function()
+      local args = {
+         [1] = "MP28/34",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button = MainTab:CreateButton({
+   Name = "Madsen 1934",
+   Callback = function()
+      local args = {
+         [1] = "Madsen 1934",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button = MainTab:CreateButton({
+   Name = "INA M943",
+   Callback = function()
+      local args = {
+         [1] = "INA M943",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button = MainTab:CreateButton({
+   Name = "Colt M1911",
+   Callback = function()
+      local args = {
+         [1] = "Colt M1911",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button = MainTab:CreateButton({
+   Name = "Molotov",
+   Callback = function()
+      local args = {
+         [1] = "Molotov",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
+local Button = MainTab:CreateButton({
+   Name = "Bandagem Grande",
+   Callback = function()
+      local args = {
+         [1] = "Bandagem grande",
+         [2] = 0
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("CompraEvento"):FireServer(unpack(args))
+   end,
+})
