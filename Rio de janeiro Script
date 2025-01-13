@@ -11,7 +11,7 @@ local Window = Rayfield:CreateWindow({
    },
 })
 
-local MainTab = Window:CreateTab("Escolha sua arma", nil) -- Title, Image
+local MainTab = Window:CreateTab("Fuzil", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
 Rayfield:Notify({
@@ -96,10 +96,10 @@ local Button = MainTab:CreateButton({
    end,
 })
 local Button = MainTab:CreateButton({
-   Name = "Bandagem Grande",
+   Name = "ItajubÃ¡ M943",
    Callback = function()
       local args = {
-         [1] = "Bandagem grande",
+         [1] = "ItajubÃ¡ M943",
          [2] = 0
      }
      
