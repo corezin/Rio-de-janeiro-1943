@@ -85,10 +85,10 @@ local Button = MainTab:CreateButton({
    end,
 })
 local Button = MainTab:CreateButton({
-   Name = "Molotov",
+   Name = "Itajubá M943",
    Callback = function()
       local args = {
-         [1] = "Molotov",
+         [1] = "Itajubá M943",
          [2] = 0
      }
      
@@ -96,10 +96,10 @@ local Button = MainTab:CreateButton({
    end,
 })
 local Button = MainTab:CreateButton({
-   Name = "Itajubá M943",
+   Name = "Molotov",
    Callback = function()
       local args = {
-         [1] = "Itajubá M943",
+         [1] = "Molotov",
          [2] = 0
      }
      
